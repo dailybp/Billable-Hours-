@@ -19,24 +19,36 @@ $("#employee-submit").on("click", function(event){
 
   var name = $('#name-input').val().trim();
   var role = $('#role-input').val().trim();
-  var startDate = moment($('#start-date-input').val().trim(),"DD/MM/YY").format();
-  // var monthlyRate = $('#monthly-rate-input').val().trim();
+  var startDate = moment($('#start-date-input').val().trim(),"DD/MM/YY").format("X");
+  var monthlyRate = $('#monthly-rate-input').val().trim();
 
   var newEmp = {
     name: name,
     role: role,
     startDate: startDate,
-    // rate: monthlyRate
+     rate: monthlyRate
   };
 
   dataRef.ref().push(newEmp);
     console.log(newEmp.name);
     console.log(newEmp.role);
     console.log(newEmp.startDate);
-    // console.log(newEmp.monthlyRate);
+    console.log(newEmp.monthlyRate);
 
-    // alert("Employee Added");
-
+    alert("Employee Added");
+    // $('.employee-schedule').append("<tr class='table-row' id=" + "'" + childSnapshot.key() + "'" + ">" +
+    //                "<td class='col-xs-3'>" + childSnapshot.val().name +
+    //                "</td>" +
+    //                "<td class='col-xs-2'>" + childSnapshot.val().role +
+    //                "</td>" +
+    //                "<td class='col-xs-2'>" + childSnapshot.val().startDate +
+    //                "</td>" +
+    //                "<td class='col-xs-2'>" + childSnapshot.val().rate + // Next Arrival Formula ()
+    //                "</td>" +
+    //                "<td class='col-xs-2'>" + childSnapshot.val().minutesTillTrain + // Minutes Away Formula
+    //                "</td>" +
+    //                "<td class='col-xs-1'>" + "<input type='submit' value='remove train' class='remove-train btn btn-primary btn-sm'>" + "</td>" +
+    //           "</tr>");
 })
 // $(document).ready(function() {
 //
